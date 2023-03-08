@@ -1,12 +1,12 @@
 {
-    "name": "oc-webpack-boilerplate",
-    "version": "0.5.3",
-    "description": "Webpack based boilerplate for OctoberCMS including ES6, Babel, Sass",
-    "author": "Manuel Burghammer",
-    "license": "MIT",
+    "name": "wn-accordion-plugin",
+    "version": "1.0.0",
+    "description": "",
+    "author": "Xitara SoftWorX - Manuel Burghammer",
+    "license": "CC BY-SA 4.0",
     "repository": {
         "type": "git",
-        "url": "https://github.com/xitara/oc-webpack-boilerplate.git"
+        "url": "https://github.com/xitara/wn-accordion-plugin.git"
     },
     "scripts": {
         "install": "chmod 755 ./bash/* && yarn build",

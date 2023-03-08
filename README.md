@@ -1,8 +1,15 @@
-# OctoberCMS Webpack ES6+ Sass Boilerplate [![devDependency Status](https://david-dm.org/xitara/webpack-boilerplate/dev-status.svg)](https://david-dm.org/xitara/webpack-boilerplate/?type=dev) [![Known Vulnerabilities](https://snyk.io/test/github/xitara/webpack-boilerplate/badge.svg)](https://snyk.io//test/github/xitara/webpack-boilerplate)
+Shield: [![CC BY-SA 4.0][cc-by-sa-shield]][cc-by-sa]
 
-A webpack 4 based boilerplate for OctoberCMS or other web projects.
-In OctoberCMS clone the repo in the plugin or theme you want.
-Otherwise clone the repo in a folder, you want and change `STORAGE` in `bash/config.sh`
+This work is licensed under a
+[Creative Commons Attribution-ShareAlike 4.0 International License][cc-by-sa].
+
+[![CC BY-SA 4.0][cc-by-sa-image]][cc-by-sa]
+
+[cc-by-sa]: http://creativecommons.org/licenses/by-sa/4.0/
+[cc-by-sa-image]: https://licensebuttons.net/l/by-sa/4.0/88x31.png
+[cc-by-sa-shield]: https://img.shields.io/badge/License-CC%20BY--SA%204.0-lightgrey.svg
+
+# An accordion plugin for Winter CMS
 
 ## Dependencies
 
