@@ -1,20 +1,22 @@
-// Variables
-@import 'base/variables';
+/* Bootstrap */
+@use 'abstracts/bootstrap';
 
-// Breakpoints
-@import 'base/breakpoints';
-
-// Mixins
-@import 'base/mixins';
-
-// Fonts
-@import 'base/fonts';
+/* Tailwind CSS */
+// @use 'abstracts/tailwindcss';
 
 /* Body */
-@import 'partials/body';
+@use 'partials/body';
 
 /* Header */
-@import 'partials/header';
+@use 'partials/header';
 
 /* Footer */
-@import 'partials/footer';
+@use 'partials/footer';
+
+/* froala and fixes */
+/* purgecss start ignore */
+@use 'partials/froala';
+
+/* Fonts */
+@use 'abstracts/fonts';
+/* purgecss stop ignore */

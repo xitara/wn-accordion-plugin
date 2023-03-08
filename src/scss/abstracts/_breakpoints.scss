@@ -14,6 +14,11 @@
  * name-and-down -> only max-width
  */
 
+@use 'sass:map';
+@use 'sass:meta';
+// @use 'bootstrap' as b;
+@use '../abstracts/variables' as v;
+
 // init list
 $bps: ();
 
@@ -39,7 +44,7 @@ $bps: ();
 
     // create the 3 variations of breakpoints
     $bps: append($bps, ('#{$name}', $v1 $v2 $media)) !global;
-    $bps: append($bps, ('#{$name}-and-up', $v1 false $media)) !global;
+    $bps: append($bps, ('#{$name}-and-up', $v2 false $media)) !global;
     $bps: append($bps, ('#{$name}-and-down', false $v2 $media)) !global;
 }
 
@@ -107,7 +112,14 @@ $bps: ();
 
 // alias for breakpoint
 @mixin bp($name) {
-    @include breakpoint($name);
+    @warn "The bp() mixin is deprecated. Include breakpoint() instead.";
+    @include bp-mediaquery(
+        get-breakpoint(min, $name),
+        get-breakpoint(max, $name),
+        get-breakpoint(media, $name)
+    ) {
+        @content;
+    }
 }
 
 // generate breakpoint
@@ -122,32 +134,45 @@ $bps: ();
 }
 
 // define breakpoints
-@include new-breakpoint(phone, 0 768px);
-@include new-breakpoint(tablet, phone 992px);
-@include new-breakpoint(desktop, tablet 1200px);
-@include new-breakpoint(large-desktop, desktop false);
+// @include new-breakpoint(phone, 0 768px);
+// @include new-breakpoint(tablet, phone 992px);
+// @include new-breakpoint(desktop, tablet 1200px);
+// @include new-breakpoint(large-desktop, desktop false);
 
-@include new-breakpoint(xs, 0 480px);
-@include new-breakpoint(s, xs 667px);
-@include new-breakpoint(m, s 800px);
-@include new-breakpoint(l, m 1024px);
-@include new-breakpoint(xl, l 1280px);
-@include new-breakpoint(xxl, xl 1680px);
-@include new-breakpoint(fullhd, xxl 1920px);
-@include new-breakpoint(uhd, fullhd 3840px);
-@include new-breakpoint(uhd2, uhd false);
+// @include new-breakpoint(xs, 0 480px);
+// @include new-breakpoint(s, xs 667px);
+// @include new-breakpoint(m, s 800px);
+// @include new-breakpoint(l, m 1024px);
+// @include new-breakpoint(xl, l 1280px);
+// @include new-breakpoint(xxl, xl 1680px);
+// @include new-breakpoint(fullhd, xxl 1920px);
+// @include new-breakpoint(uhd, fullhd 3840px);
+// @include new-breakpoint(uhd2, uhd false);
 
-@include new-breakpoint(phone, 0 20rem, screen); // 320px
-@include new-breakpoint(tablet, phone 48rem); // 768px
-@include new-breakpoint(desktop, tablet 75rem); // 1200px
-@include new-breakpoint(large-desktop, desktop false); // 1200px
+// @include new-breakpoint(phone, 0 20rem, screen); // 320px
+// @include new-breakpoint(tablet, phone 48rem); // 768px
+// @include new-breakpoint(desktop, tablet 75rem); // 1200px
+// @include new-breakpoint(large-desktop, desktop false); // 1200px
 
-@include new-breakpoint(phone-l, 0 320px);
-@include new-breakpoint(tablet-l, phone-l 1024px);
+// @include new-breakpoint(phone-l, 0 320px);
+// @include new-breakpoint(tablet-l, phone-l 1024px);
 
-@include new-breakpoint(nav-s, l 1600px);
-@include new-breakpoint(nav-m, nav-s 1700px);
-@include new-breakpoint(nav-l, nav-m 1850px);
+// @include new-breakpoint(nav-s, l 1600px);
+// @include new-breakpoint(nav-m, nav-s 1700px);
+// @include new-breakpoint(nav-l, nav-m 1850px);
+
+// set bootstrap breakpoints
+@each $name, $width in v.$grid-breakpoints {
+    @if variable-exists(oldName) {
+        // @warn 'Exists: ' $oldName ' > ' $name ' > ' $width;
+        @include new-breakpoint($name, $oldName $width);
+    } @else {
+        // @warn 'NotExists: ' $name ' > ' $width;
+        @include new-breakpoint($name, 0 $width);
+    }
+    // @warn $name;
+    $oldName: $name;
+}
 
 // .example {
 //     @include breakpoint(desktop) {
