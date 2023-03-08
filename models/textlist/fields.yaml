@@ -1,0 +1,38 @@
+# ===================================
+#  Form Field Definitions
+# ===================================
+
+fields:
+    name:
+        label: xitara.accordion::core.name
+        type: text
+        span: left
+    slug:
+        label: xitara.accordion::core.slug
+        type: text
+        span: right
+        preset:
+            field: name
+            type: slug
+    textlist:
+        label: xitara.accordion::lang.textlist.label
+        type: repeater
+        prompt: xitara.accordion::lang.textlist.prompt
+        span: full
+        form:
+            fields:
+                title:
+                    label: xitara.accordion::core.title
+                    type: text
+                    span: left
+                is_active:
+                    label: xitara.accordion::core.is_active
+                    type: switch
+                    span: right
+                    default: 1
+                    cssClass: center-switch
+                text:
+                    label: xitara.accordion::lang.textlist.text
+                    comment: xitara.accordion::lang.textlist.comment
+                    type: richeditor
+                    span: full

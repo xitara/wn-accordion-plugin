@@ -1,0 +1,31 @@
+# ===================================
+#  Form Behavior Config
+# ===================================
+
+# Record name
+name: Text List
+
+# Model Form Field configuration
+form: $/xitara/accordion/models/textlist/fields.yaml
+
+# Model Class name
+modelClass: Xitara\Accordion\Models\TextList
+
+# Default redirect location
+defaultRedirect: xitara/accordion/textlists
+
+# Create page
+create:
+    title: xitara.accordion::accordion.create
+    redirect: xitara/accordion/textlists/update/:id
+    redirectClose: xitara/accordion/textlists
+
+# Update page
+update:
+    title: xitara.accordion::accordion.update
+    redirect: xitara/accordion/textlists
+    redirectClose: xitara/accordion/textlists
+
+# Preview page
+preview:
+    title: xitara.accordion::accordion.preview

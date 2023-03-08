@@ -1,0 +1,12 @@
+{% if textlist.is_active == 1 %}
+    <section class="accordion">
+        {% for text in textlist.textlist %}
+            {% if text.is_active == 1 %}
+                <article class="row relative">
+                    <h2>{{ text.title }}</h2>
+                    <section>{{ text.text|raw }}</p>
+                </article>
+            {% endif %}
+        {% endfor %}
+    </section>
+{% endif %}

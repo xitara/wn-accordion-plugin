@@ -1,0 +1,23 @@
+# ===================================
+#  List Column Definitions
+# ===================================
+
+columns:
+    name:
+        label: xitara.accordion::core.name
+        searchable: true
+        sortable: true
+    created_at:
+        label: xitara.accordion::core.created_at
+        type: datetime
+        width: 15%
+        align: center
+        searchable: true
+        sortable: true
+    updated_at:
+        label: xitara.accordion::core.updated_at
+        type: datetime
+        width: 15%
+        align: center
+        searchable: true
+        sortable: true
